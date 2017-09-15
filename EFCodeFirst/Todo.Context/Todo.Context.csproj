@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{18A74B44-ECAF-488B-9B66-E14D261450AF}</ProjectGuid>
+    <ProjectGuid>{A7B1F0FF-2221-4001-A8E9-B26D9A7AF736}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TodoContext</RootNamespace>
-    <AssemblyName>TodoContext</AssemblyName>
+    <RootNamespace>Todo.Context</RootNamespace>
+    <AssemblyName>Todo.Context</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,13 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\TodoContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Objects\TodoItem.cs" />
+    <Compile Include="TodoContext.cs" />
+    <Compile Include="TodoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Object Clients\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
