@@ -1,7 +1,7 @@
-using Todo.Context;
+using System;
 using System.Data.Entity.Migrations;
 
-namespace Todo.Web.Migrations
+namespace Todo.Context.Migrations
 {
 
     internal sealed class Configuration : DbMigrationsConfiguration<TodoContext>
@@ -11,7 +11,7 @@ namespace Todo.Web.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(TodoContext Context)
+        protected override void Seed(TodoContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -25,6 +25,14 @@ namespace Todo.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.TodoItems.AddOrUpdate(i => i.Description,
+                new TodoItem {Description = "Item 1", Created = DateTime.Now, Modified = DateTime.Now},
+                new TodoItem {Description = "Item 2", Created = DateTime.Now, Modified = DateTime.Now},
+                new TodoItem {Description = "Item 3", Created = DateTime.Now, Modified = DateTime.Now},
+                new TodoItem {Description = "Item 4", Created = DateTime.Now, Modified = DateTime.Now }
+            );
+
         }
     }
 }
