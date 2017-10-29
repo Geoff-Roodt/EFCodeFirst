@@ -312,6 +312,10 @@
       <Project>{a7b1f0ff-2221-4001-a8e9-b26d9a7af736}</Project>
       <Name>Todo.Context</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Todo.Web.Service\Todo.Web.Service.csproj">
+      <Project>{fec9e01e-b393-46db-972d-e0f2302d1cf7}</Project>
+      <Name>Todo.Web.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
