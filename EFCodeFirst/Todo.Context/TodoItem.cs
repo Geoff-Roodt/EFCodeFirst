@@ -19,6 +19,9 @@ namespace Todo.Context
         public string Description { get; set; }
 
         [DataMember]
+        public bool Completed { get; set; }
+
+        [DataMember]
         public DateTime Created { get; set; }
 
         [DataMember]
