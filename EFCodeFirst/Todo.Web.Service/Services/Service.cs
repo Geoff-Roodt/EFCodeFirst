@@ -4,6 +4,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using Todo.Context;
 using Todo.Web.Service.Interfaces;
 
@@ -66,6 +68,7 @@ namespace Todo.Web.Service.Services
 
             try
             {
+                Context.Set<TBase>().AddOrUpdate(item);
                 success = await Context.SaveChangesAsync();
             }
             catch (Exception ex)
@@ -76,12 +79,19 @@ namespace Todo.Web.Service.Services
             return success;
         }
 
-        public bool Remove(TBase item)
+        public async Task<bool> Remove(int id)
         {
             try
             {
-                Context.Set<TBase>().Remove(item);
-                return true;
+                TBase item = GetSingle(id);
+                if (item != null)
+                {
+                    Context.Entry(item).State = EntityState.Deleted;
+                    Context.Set<TBase>().Remove(item);
+                    await Context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
             }
             catch (Exception ex)
             {
