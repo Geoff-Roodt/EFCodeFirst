@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+TodoItemDetailRow/Layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+TodoItemDetailRow/LinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+TodoItemDetailRow/TxtDescription"
+                android:text="Audit Name"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                style="@style/SmallText.Bold" />
+            <CheckBox
+                android:id="@+TodoItemDetailRow/ChkCompleted"
+                android:textSize="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="left"
+                android:focusableInTouchMode="false"
+                android:button="@drawable/CustomCheckbox" />
+        </LinearLayout>
+        <TextView
+            android:id="@+TodoItemDetailRow/TxtCreated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            style="@style/SmallText.Grey" />
+        <TextView
+            android:id="@+TodoItemDetailRow/TxtUpdated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            style="@style/SmallText.Grey" />
+    </LinearLayout>
+</LinearLayout>

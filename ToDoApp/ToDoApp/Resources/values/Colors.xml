@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+  <color name="button">#0072b0</color>
+  <color name="buttonpressed">#5C66CC</color>
+  <color name="buttondisabled">#BEBECC</color>
+  <color name="grey">#808080</color>
+</resources>
