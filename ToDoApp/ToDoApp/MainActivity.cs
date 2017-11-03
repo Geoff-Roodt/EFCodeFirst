@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 using Android.OS;
 using Android.App;
 using Android.Widget;
@@ -33,9 +34,33 @@ namespace ToDoApp
             Button btnSync = FindViewById<Button>(Resource.Main.btnSync);
             btnSync.Click += BtnSync_Click;
 
+            Button btnSave = FindViewById<Button>(Resource.Main.btnSave);
+            btnSave.Click += BtnSave_Click;
+
             LblHeading = FindViewById<TextView>(Resource.Main.lblHeading);
 
             await PopulateItems();
+        }
+
+        private async void BtnSave_Click(object sender, System.EventArgs e)
+        {
+            TodoItemDetailAdapter adapter = LvTodoItems.Adapter as TodoItemDetailAdapter;
+            if (adapter != null)
+            {
+                foreach (TodoItem item in adapter.GetItems())
+                {
+                    bool response = await Service.Edit(item);
+                    if (!response)
+                    {
+                        Toast.MakeText(this, $"{item.Description} was not updated", ToastLength.Long).Show();
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, $"{item.Description} successfully updated", ToastLength.Long).Show();
+                    }
+                }
+                await PopulateItems();
+            }
         }
 
         private async void BtnSync_Click(object sender, System.EventArgs e)
@@ -59,6 +84,7 @@ namespace ToDoApp
             {
                 var listAdapter = new TodoItemDetailAdapter(this, Items);
                 LvTodoItems.Adapter = listAdapter;
+                LvTodoItems.RefreshDrawableState();
 
                 LblHeading.Text = Items != null && Items.Count > 0 ? "Things To Do" : "You have no things to do!";
             }

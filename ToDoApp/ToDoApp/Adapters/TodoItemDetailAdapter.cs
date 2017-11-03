@@ -64,5 +64,10 @@ namespace ToDoApp.Adapters
             get { return Objects.Count; }
         }
 
+        public IList<TodoItem> GetItems()
+        {
+            return Objects;
+        }
+
     }
 }
