@@ -3,7 +3,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Android.Runtime;
+using System.Collections.Generic;
 using ToDoApp.Tables;
 using ToDoApp.Interfaces;
 
@@ -12,7 +12,7 @@ namespace ToDoApp.Services
     public class RestService : IRestService
     {
         private HttpClient Client;
-        public JavaList<TodoItem> TodoItems { get; private set; }
+        public List<TodoItem> TodoItems { get; private set; }
 
         public RestService()
         {
@@ -22,9 +22,9 @@ namespace ToDoApp.Services
             };
         }
 
-        public async Task<JavaList<TodoItem>> RefreshDataAsync()
+        public async Task<List<TodoItem>> RefreshDataAsync()
         {
-            TodoItems = new JavaList<TodoItem>();
+            TodoItems = new List<TodoItem>();
 
             try
             {
@@ -32,7 +32,7 @@ namespace ToDoApp.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    TodoItems = JsonConvert.DeserializeObject<JavaList<TodoItem>>(content);
+                    TodoItems = JsonConvert.DeserializeObject<List<TodoItem>>(content);
                     return TodoItems;
                 }
 

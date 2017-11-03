@@ -1,7 +1,6 @@
+using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
-using Android.Runtime;
 using ToDoApp.Tables;
 using ToDoApp.Interfaces;
 
@@ -16,10 +15,11 @@ namespace ToDoApp.Services
             RestService = service;
         }
 
-        public async Task<JavaList<TodoItem>> Get()
+        public async Task<List<TodoItem>> Get()
         {
             var items = await RestService.RefreshDataAsync();
-            return (JavaList<TodoItem>) items;
+            items = items.OrderBy(x => !x.Completed).ThenBy(x => x.Description).ToList();
+            return items;
         }
 
         public async Task<bool> Delete(int id)

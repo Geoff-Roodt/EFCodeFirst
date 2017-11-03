@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="#FF0000">
         <Button
             android:id="@+Main/btnSync"
             android:text="Sync"
@@ -24,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginBottom="20dp"
+        android:background="#3CFF00"
         android:layout_above="@Main/mainBtnLayout">
         <TextView
             android:id="@+Main/lblHeading"
@@ -36,23 +38,23 @@
             style="@style/MediumText.Bold" />
         <ScrollView
             android:id="@+Main/mainScrollList"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="50dp"
-            android:fadeScrollbars="false">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:background="#006BFF">
             <ListView
                 android:id="@+Main/lstTodoItems"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:divider="@android:color/darker_gray"
                 android:dividerHeight="1.5dp"
                 android:headerDividersEnabled="true"
                 android:cacheColorHint="#FFF"
-                android:footerDividersEnabled="true" />
+                android:footerDividersEnabled="true"
+                android:background="#FF00E7"/>
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>

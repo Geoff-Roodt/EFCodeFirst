@@ -1,7 +1,5 @@
 using System;
-using System.Linq;
 using Android.App;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using ToDoApp.Tables;

@@ -1,12 +1,11 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Android.App;
-using Android.Runtime;
-using Android.Widget;
+﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 using Android.OS;
+using Android.App;
+using Android.Widget;
+using ToDoApp.Tables;
 using ToDoApp.Adapters;
 using ToDoApp.Services;
-using ToDoApp.Tables;
 
 namespace ToDoApp
 {
@@ -16,7 +15,7 @@ namespace ToDoApp
         private ListView LvTodoItems;
         private TextView LblHeading;
         private TodoService Service;
-        private JavaList<TodoItem> Items;
+        private List<TodoItem> Items;
 
         protected override async void OnCreate(Bundle bundle)
         {
@@ -26,7 +25,7 @@ namespace ToDoApp
             SetContentView(Resource.Layout.Main);
 
             Service = new TodoService(new RestService());
-            Items = new JavaList<TodoItem>();
+            Items = new List<TodoItem>();
 
             LvTodoItems = FindViewById<ListView>(Resource.Main.lstTodoItems);
             LvTodoItems.ItemClick += LstLvTodoItemsItemClick;
@@ -58,7 +57,7 @@ namespace ToDoApp
             Items = await Service.Get();
             if (Items != null)
             {
-                var listAdapter = new TodoItemDetailAdapter(this, Items.ToList());
+                var listAdapter = new TodoItemDetailAdapter(this, Items);
                 LvTodoItems.Adapter = listAdapter;
 
                 LblHeading.Text = Items != null && Items.Count > 0 ? "Things To Do" : "You have no things to do!";
