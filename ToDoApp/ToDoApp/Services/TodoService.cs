@@ -18,7 +18,7 @@ namespace ToDoApp.Services
         public async Task<List<TodoItem>> Get()
         {
             var items = await RestService.RefreshDataAsync();
-            items = items.OrderBy(x => !x.Completed).ThenBy(x => x.Description).ToList();
+            items = items.OrderBy(x => x.Completed).ThenBy(x => x.Description).ToList();
             return items;
         }
 

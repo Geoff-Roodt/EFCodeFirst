@@ -3,58 +3,32 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     style="@style/Background">
-    <LinearLayout
-        android:id="@+Main/mainBtnLayout"
-        android:orientation="horizontal"
-        android:minWidth="25dp"
-        android:minHeight="25dp"
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+Main/lblHeading"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_alignParentBottom="true"
-        android:background="#FF0000">
-        <Button
-            android:id="@+Main/btnSync"
-            android:text="Sync"
-            style="@style/Button.CentreBottom" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+Main/mainLayout"
-        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        style="@style/MediumText.Bold" />
+    <ListView
+        android:id="@+Main/lstTodoItems"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="20dp"
-        android:background="#3CFF00"
-        android:layout_above="@Main/mainBtnLayout">
-        <TextView
-            android:id="@+Main/lblHeading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentTop="true"
-            style="@style/MediumText.Bold" />
-        <ScrollView
-            android:id="@+Main/mainScrollList"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fadeScrollbars="false"
-            android:background="#006BFF">
-            <ListView
-                android:id="@+Main/lstTodoItems"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:divider="@android:color/darker_gray"
-                android:dividerHeight="1.5dp"
-                android:headerDividersEnabled="true"
-                android:cacheColorHint="#FFF"
-                android:footerDividersEnabled="true"
-                android:background="#FF00E7"/>
-        </ScrollView>
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1.5dp"
+        android:headerDividersEnabled="true"
+        android:cacheColorHint="#FFF"
+        android:footerDividersEnabled="true"
+        android:smoothScrollbar="true" />
+    <Button
+        android:id="@+Main/btnSync"
+        android:text="Sync"
+        android:layout_alignParentBottom="true"
+        style="@style/Button.CentreBottom" />
 </RelativeLayout>

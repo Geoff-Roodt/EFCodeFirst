@@ -31,23 +31,14 @@ namespace ToDoApp
 		public partial class Main
 		{
 			
-			// aapt resource value: 0x7f070001
-			public const int btnSync = 2131165185;
-			
-			// aapt resource value: 0x7f070003
-			public const int lblHeading = 2131165187;
-			
-			// aapt resource value: 0x7f070005
-			public const int lstTodoItems = 2131165189;
+			// aapt resource value: 0x7f070002
+			public const int btnSync = 2131165186;
 			
 			// aapt resource value: 0x7f070000
-			public const int mainBtnLayout = 2131165184;
+			public const int lblHeading = 2131165184;
 			
-			// aapt resource value: 0x7f070002
-			public const int mainLayout = 2131165186;
-			
-			// aapt resource value: 0x7f070004
-			public const int mainScrollList = 2131165188;
+			// aapt resource value: 0x7f070001
+			public const int lstTodoItems = 2131165185;
 			
 			static Main()
 			{
