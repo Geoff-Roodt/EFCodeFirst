@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.app.todo" android:versionCode="1" android:versionName="1.0" android:installLocation="internalOnly">
-	<uses-sdk android:minSdkVersion="16" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.app.todo" android:versionCode="1" android:versionName="1.0" android:installLocation="preferExternal">
+	<uses-sdk />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="ToDo App" android:icon="@drawable/Icon"></application>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<application android:label="To Do Items" android:icon="@drawable/Launcher_Icon"></application>
 </manifest>

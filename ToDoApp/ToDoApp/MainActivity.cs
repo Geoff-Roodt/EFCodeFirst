@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
 using Android.OS;
 using Android.App;
+using Android.Content.PM;
 using Android.Widget;
 using ToDoApp.Tables;
 using ToDoApp.Adapters;
@@ -10,7 +10,7 @@ using ToDoApp.Services;
 
 namespace ToDoApp
 {
-    [Activity(Label = "ToDo App", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "To Do Items", Icon = "@drawable/Launcher_Icon", Theme="@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : Activity
     {
         private ListView LvTodoItems;
