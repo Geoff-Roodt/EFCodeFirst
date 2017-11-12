@@ -24,6 +24,10 @@
 <style name="SmallText.Grey" parent="@android:style/TextAppearance.Small">
   <item name="android:textColor">@color/grey</item>
 </style>
+  
+<style name="MediumText.Red" parent="@android:style/TextAppearance.Small">
+  <item name="android:textColor">@color/red</item>
+</style>
 
 <style name="Button" parent="@android:style/Widget.Button">
   <item name="android:background">@drawable/buttonbackground</item>

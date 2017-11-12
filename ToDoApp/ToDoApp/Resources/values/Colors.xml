@@ -4,5 +4,6 @@
   <color name="buttonpressed">#5C66CC</color>
   <color name="buttondisabled">#BEBECC</color>
   <color name="grey">#808080</color>
+  <color name="red">#FF0000</color>
   <color name="splash_background">#000000</color>
 </resources>

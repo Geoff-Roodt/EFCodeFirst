@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 using Android.OS;
 using Android.App;
 using Android.Content.PM;
+using Android.Views;
 using Android.Widget;
 using ToDoApp.Tables;
 using ToDoApp.Adapters;
@@ -14,7 +16,7 @@ namespace ToDoApp
     public class MainActivity : Activity
     {
         private ListView LvTodoItems;
-        private TextView LblHeading;
+        private TextView LblError;
         private TodoService Service;
         private List<TodoItem> Items;
 
@@ -37,7 +39,7 @@ namespace ToDoApp
             Button btnSave = FindViewById<Button>(Resource.Main.btnSave);
             btnSave.Click += BtnSave_Click;
 
-            LblHeading = FindViewById<TextView>(Resource.Main.lblHeading);
+            LblError = FindViewById<TextView>(Resource.Main.lblError);
 
             await PopulateItems();
         }
@@ -86,11 +88,16 @@ namespace ToDoApp
                 LvTodoItems.Adapter = listAdapter;
                 LvTodoItems.RefreshDrawableState();
 
-                LblHeading.Text = Items != null && Items.Count > 0 ? "Things To Do" : "You have no things to do!";
+                if (!Items.Any())
+                {
+                    LblError.Text = "You have no things to do!";
+                    LblError.Visibility = ViewStates.Visible;
+                }
             }
             else
             {
-                LblHeading.Text = "Oops! Something went wrong. We could not load your things to do";
+                LblError.Text = "Oops! Something went wrong. We could not load your things to do";
+                LblError.Visibility = ViewStates.Visible;
             }
         }
     }
