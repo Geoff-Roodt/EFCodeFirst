@@ -2469,11 +2469,17 @@ namespace ToDoApp
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f050023
+			public const int AddOption = 2131034147;
+			
 			// aapt resource value: 0x7f050022
 			public const int ApplicationName = 2131034146;
 			
 			// aapt resource value: 0x7f050021
 			public const int Hello = 2131034145;
+			
+			// aapt resource value: 0x7f050024
+			public const int SyncOption = 2131034148;
 			
 			// aapt resource value: 0x7f050000
 			public const int abc_action_bar_home_description = 2131034112;
@@ -3107,10 +3113,7 @@ namespace ToDoApp
 			public const int MediumText_Red = 2131165554;
 			
 			// aapt resource value: 0x7f070178
-			public const int MyTheme_Base = 2131165560;
-			
-			// aapt resource value: 0x7f07017a
-			public const int MyTheme_Splash = 2131165562;
+			public const int MyTheme_Splash = 2131165560;
 			
 			// aapt resource value: 0x7f07001e
 			public const int Platform_AppCompat = 2131165214;

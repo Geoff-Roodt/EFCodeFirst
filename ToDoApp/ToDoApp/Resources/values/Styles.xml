@@ -67,16 +67,14 @@
   <item name="android:layout_weight">1</item>
 </style>
 
-  <style name="MyTheme.Base" parent="Theme.AppCompat.Light">
-  </style>
-
-  <style name="MainTheme" parent="MyTheme.Base">
-  </style>
-
   <style name="MyTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
     <item name="android:windowBackground">@drawable/SplashScreen</item>
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowFullscreen">true</item>
+  </style>
+  
+  <style name="MainTheme">
+    <item name="android:windowNoTitle">true</item>
   </style>
 
 </resources>

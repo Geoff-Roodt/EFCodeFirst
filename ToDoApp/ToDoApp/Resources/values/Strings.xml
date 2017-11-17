@@ -2,4 +2,6 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">ToDoApp</string>
+    <string name="AddOption">Create</string>
+    <string name="SyncOption">Sync</string>
 </resources>
