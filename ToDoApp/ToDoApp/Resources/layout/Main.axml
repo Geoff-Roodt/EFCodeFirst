@@ -4,31 +4,11 @@
     android:layout_height="fill_parent"
     style="@style/Background">
     <LinearLayout
-        android:id="@+Main/mainBtnLayout"
-        android:orientation="horizontal"
-        android:minWidth="25dp"
-        android:minHeight="25dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentBottom="true">
-        <Button
-            android:id="@+Main/btnSave"
-            android:text="Save"
-            style="@style/Button.Left" />
-        <Button
-            android:id="@+Main/btnSync"
-            android:text="Sync"
-            style="@style/Button.Right" />
-    </LinearLayout>
-    <LinearLayout
         android:id="@+Main/mainLayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@Main/mainBtnLayout">
+        android:layout_marginBottom="20dp">
         <TextView
             android:id="@+Main/lblHeading"
             android:text="To Do Items"

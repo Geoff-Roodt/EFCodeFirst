@@ -31,26 +31,17 @@ namespace ToDoApp
 		public partial class Main
 		{
 			
-			// aapt resource value: 0x7f0c0001
-			public const int btnSave = 2131492865;
-			
 			// aapt resource value: 0x7f0c0002
-			public const int btnSync = 2131492866;
+			public const int lblError = 2131492866;
 			
-			// aapt resource value: 0x7f0c0005
-			public const int lblError = 2131492869;
-			
-			// aapt resource value: 0x7f0c0004
-			public const int lblHeading = 2131492868;
-			
-			// aapt resource value: 0x7f0c0006
-			public const int lstTodoItems = 2131492870;
-			
-			// aapt resource value: 0x7f0c0000
-			public const int mainBtnLayout = 2131492864;
+			// aapt resource value: 0x7f0c0001
+			public const int lblHeading = 2131492865;
 			
 			// aapt resource value: 0x7f0c0003
-			public const int mainLayout = 2131492867;
+			public const int lstTodoItems = 2131492867;
+			
+			// aapt resource value: 0x7f0c0000
+			public const int mainLayout = 2131492864;
 			
 			static Main()
 			{
@@ -2477,6 +2468,9 @@ namespace ToDoApp
 			
 			// aapt resource value: 0x7f050021
 			public const int Hello = 2131034145;
+			
+			// aapt resource value: 0x7f050025
+			public const int SaveOption = 2131034149;
 			
 			// aapt resource value: 0x7f050024
 			public const int SyncOption = 2131034148;
