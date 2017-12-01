@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Android.OS;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using ToDoApp.Tables;
@@ -30,6 +32,10 @@ namespace ToDoApp
 
         protected override async void OnCreate(Bundle bundle)
         {
+            var view = LayoutInflater.Inflate(Resource.Layout.TodoItemDetailRow, null, false);
+            CheckBox completedCheckbox = view.FindViewById<CheckBox>(Resource.TodoItemDetailRow.ChkCompleted);
+            completedCheckbox.CheckedChange += CompletedCheckbox_CheckedChange;
+
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
@@ -39,18 +45,26 @@ namespace ToDoApp
             Items = new List<TodoItem>();
 
             LvTodoItems = FindViewById<ListView>(Resource.Main.lstTodoItems);
-            LvTodoItems.ItemClick += LstLvTodoItemsItemClick;
+            LvTodoItems.ItemClick += LvTodoItems_ItemClick;
 
             LblError = FindViewById<TextView>(Resource.Main.lblError);
 
             await PopulateItems();
         }
-        
-        private void LstLvTodoItemsItemClick(object sender, AdapterView.ItemClickEventArgs e)
+
+        private void LvTodoItems_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            // Toggle the 'done' state of the item
-            var foo = e;
-            var bar = sender;
+            TodoItemDetailAdapter adapter = LvTodoItems.Adapter as TodoItemDetailAdapter;
+            if (adapter != null)
+            {
+                TodoItem selectedItem = adapter.GetTodoItem(e.Position);
+                if (selectedItem != null)
+                {
+                    CheckBox completed = FindViewById<CheckBox>(Resource.TodoItemDetailRow.ChkCompleted);
+                    selectedItem.Completed = !completed.Checked;
+                    adapter.NotifyDataSetChanged();
+                }
+            }
         }
 
         private async Task PopulateItems()
@@ -87,7 +101,6 @@ namespace ToDoApp
             return base.OnCreateOptionsMenu(menu);
         }
 
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch ((MenuType)item.ItemId)
@@ -108,7 +121,7 @@ namespace ToDoApp
 
             return base.OnOptionsItemSelected(item);
         }
-
+        
         private async Task SaveItems()
         {
             TodoItemDetailAdapter adapter = LvTodoItems.Adapter as TodoItemDetailAdapter;
@@ -128,6 +141,11 @@ namespace ToDoApp
                 }
                 await PopulateItems();
             }
+        }
+        
+        private void CompletedCheckbox_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        {
+            var foo = sender;
         }
     }
 }

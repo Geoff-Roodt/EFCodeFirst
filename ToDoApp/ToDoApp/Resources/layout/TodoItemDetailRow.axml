@@ -38,6 +38,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_gravity="left"
                 android:focusableInTouchMode="false"
+                android:focusable="false"
                 android:button="@drawable/CustomCheckbox" />
         </LinearLayout>
         <TextView

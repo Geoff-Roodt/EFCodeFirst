@@ -5,11 +5,14 @@ using Android.Widget;
 using ToDoApp.Tables;
 using Object = Java.Lang.Object;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Android.Text;
+using ToDoApp.Annotations;
 
 namespace ToDoApp.Adapters
 {
-    public class TodoItemDetailAdapter : BaseAdapter
+    public class TodoItemDetailAdapter : BaseAdapter, INotifyPropertyChanged
     {
         private readonly Activity Activity;
         private readonly IList<TodoItem> Objects;
@@ -63,11 +66,28 @@ namespace ToDoApp.Adapters
         {
             get { return Objects.Count; }
         }
-
+        
         public IList<TodoItem> GetItems()
         {
             return Objects;
         }
 
+        public TodoItem GetTodoItem(int position)
+        {
+            if (position >= 0 && position < Objects.Count)
+            {
+                return Objects[position];
+            }
+
+            return null;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string PropertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+        }
     }
 }
