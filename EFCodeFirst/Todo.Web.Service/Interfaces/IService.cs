@@ -10,6 +10,7 @@ namespace Todo.Web.Service.Interfaces
 
         Task<TBase> Add(TBase item);
         Task<int> Update(TBase item);
+        Task<int> Update(List<TBase> items);
         Task<bool> Remove(int id);
     }
 }

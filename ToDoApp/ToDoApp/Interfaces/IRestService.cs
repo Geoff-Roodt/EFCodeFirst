@@ -10,5 +10,6 @@ namespace ToDoApp.Interfaces
         Task<int> Update(TodoItem item);
         Task<int> Add(TodoItem item);
         Task<int> Delete(int id);
+        Task<int> Update(List<TodoItem> items);
     }
 }

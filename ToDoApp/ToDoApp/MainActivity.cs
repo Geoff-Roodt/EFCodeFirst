@@ -35,6 +35,7 @@ namespace ToDoApp
             var view = LayoutInflater.Inflate(Resource.Layout.TodoItemDetailRow, null, false);
             CheckBox completedCheckbox = view.FindViewById<CheckBox>(Resource.TodoItemDetailRow.ChkCompleted);
             completedCheckbox.CheckedChange += CompletedCheckbox_CheckedChange;
+            view.Clickable = true;
 
             base.OnCreate(bundle);
 
@@ -127,18 +128,10 @@ namespace ToDoApp
             TodoItemDetailAdapter adapter = LvTodoItems.Adapter as TodoItemDetailAdapter;
             if (adapter != null)
             {
-                foreach (TodoItem item in adapter.GetItems())
-                {
-                    bool response = await Service.Edit(item);
-                    if (!response)
-                    {
-                        Toast.MakeText(this, $"{item.Description} was not updated", ToastLength.Long).Show();
-                    }
-                    else
-                    {
-                        Toast.MakeText(this, $"{item.Description} successfully updated", ToastLength.Long).Show();
-                    }
-                }
+                List<TodoItem> items = adapter.GetItems().ToList();
+                bool response = await Service.Edit(items);
+                string message = response ? "All items have been updated" : "Some items may not have been updated";
+                Toast.MakeText(this, message, ToastLength.Long).Show();
                 await PopulateItems();
             }
         }

@@ -39,5 +39,11 @@ namespace ToDoApp.Services
             var response = await RestService.Update(item);
             return response == 1;
         }
+
+        public async Task<bool> Edit(List<TodoItem> item)
+        {
+            var response = await RestService.Update(item);
+            return response == 1;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Threading.Tasks;
@@ -51,6 +52,18 @@ namespace Todo.Web.Controllers
             if (item == null) throw new ArgumentNullException(nameof(item));
             item.Modified = DateTime.Now;
             return await Service.Update(item) > 0;
+        }
+
+        [HttpPut]
+        [Route("todoitems/many")]
+        public async Task<bool> PutMany(List<TodoItem> items)
+        {
+            if (items == null || !items.Any())
+            {
+                return false;
+            }
+
+            return await Service.Update(items) > 0;
         }
 
         [HttpDelete]

@@ -99,6 +99,29 @@ namespace Todo.Web.Service.Services
             }
         }
 
+        public async Task<int> Update(List<TBase> items)
+        {
+            if (items == null || !items.Any()) return 0;
+
+            int success = 0;
+
+            try
+            {
+                foreach (TBase item in items)
+                {
+                    Context.Entry(item).State = EntityState.Modified;
+                    Context.Set<TBase>().AddOrUpdate(item);
+                }
+                success = await Context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return success;
+            }
+
+            return success;
+        }
+
 
         #region Extra Helping
 
